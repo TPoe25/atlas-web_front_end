@@ -191,7 +191,6 @@
 
 /* Remove the padding declaration and set margin for all column classes */
 [class*='col-'] {
-  padding: 0; /* Remove padding */
   margin: 1rem; /* Set margin */
 }
 
