@@ -159,31 +159,27 @@ html {
   /* Grid
       ============================= */
   /* Adjust the width for .col-1-3 */
-.col-1-3 {
-  width: calc((100% / 3) - 2rem); /* Change width */
-}
-
-/* Adjust the width for .col-1-2 */
-.col-1-2 {
-  width: calc((100% / 2) - 2rem); /* Change width */
-}
-
-/* Remove the padding declaration and set margin for all column classes */
-[class*='col-'] {
-  padding: 0; /* Remove padding */
-  margin: 1rem; /* Set margin */
-}
-
-/* Adjust margin for ul.row */
-ul.row {
-  margin: -1rem; /* Change margin */
-}
-  /* Navbar
-      ============================= */
-  
-  .navbar-menu {
-    float: right;
+  .col-1-3 {
+    width: calc((100% / 3) - 2rem); /* Change width */
   }
+
+  /* Adjust the width for .col-1-2 */
+  .col-1-2 {
+    width: calc((100% / 2) - 2rem); /* Change width */
+  }
+
+  /* Remove the padding declaration and set margin for all column classes */
+  [class*='col-'] {
+    padding: 0; /* Remove padding */
+    margin: 1rem; /* Set margin */
+  }
+
+  /* Adjust margin for ul.row */
+  ul.row {
+    margin: -1rem; /* Change margin */
+  }
+    /* Navbar
+        ============================= */
   
   .nav {
     margin: 0;
