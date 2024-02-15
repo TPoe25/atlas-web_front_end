@@ -130,7 +130,18 @@ a:visited {
   font-style: italic;
 }
 
-a:hover {
+body {
+  color: var(--text-color);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-base);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-title);
+  font-weight: var(--font-weight-bold);
+}a:hover {
   text-decoration: underline;
 }
 
@@ -512,8 +523,16 @@ ul.row {
   color: var(--section-tagline-color);
   font-family: var(--section-tagline-font-family);
   text-transform: var(--section-tagline-transform);
-  font-weight: var(--section-tagline-font-weight);
-  margin: var(--section-tagline-margin);
+.section {
+  padding: var(--section-padding);
+}  font-weight: var(--section-tagline-font-weight);
+.section-header {
+  text-align: var(--section-header-align);
+  padding: var(--section-header-padding);
+}  margin: var(--section-tagline-margin);
+.section-body {
+  padding: var(--section-body-padding);
+}
 }
 
 .section-body {
@@ -524,7 +543,10 @@ ul.row {
   padding: var(--section-footer-padding);
   text-align: var(--section-footer-align);
 }
-
+.section-footer {
+  padding: var(--section-footer-padding);
+  text-align: var(--section-footer-align);
+}
 /* Section theming
     ============================= */
 
