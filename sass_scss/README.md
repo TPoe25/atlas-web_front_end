@@ -1,0 +1,1 @@
+This project is about Sass and SCSS styling of css.
