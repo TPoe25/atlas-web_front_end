@@ -357,7 +357,7 @@
       margin: var(--section-tagline-margin);
     }
     
-    .section-body {
+    .section-hero .section-body {
       padding: 10rem 4rem;
     }
     
