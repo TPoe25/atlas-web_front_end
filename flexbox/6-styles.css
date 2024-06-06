@@ -13,6 +13,7 @@
 /* Variables
    ============================= */
    :root {
+    --nav-item-margin: 0 0 0 2rem;
     --color-primary: #D73953;
     --color-black:  #090909;
     --color-white: #ffffff;
