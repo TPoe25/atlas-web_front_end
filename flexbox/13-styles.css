@@ -579,14 +579,14 @@
       list-style: none;
     }
 
-    .taglist li {
+    .tag-list li {
       display: inline;
     }
 
-    .taglist li::after {
+    .tag-list li::after {
       content: ", "
     }
 
-    .taglist li::after:last-child {
+    .tag-list li::after:last-child {
       content: none;
     }
