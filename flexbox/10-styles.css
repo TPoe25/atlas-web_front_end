@@ -309,7 +309,7 @@
 
     .section-hero .section-category {
       color: var(--color-white);
-      text-transform: var(--section-category-uppercase);
+      text-transform: var(--uppercase);
     }
   
     /* Section Latest News */
