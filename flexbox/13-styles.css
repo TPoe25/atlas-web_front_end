@@ -547,3 +547,45 @@
       order: -1;
       min-width: 20%;
     }
+
+    .post-meta-list {
+      flex-direction: column;
+    }
+
+    .post-meta-list strong {
+        color: var(--color-primary);
+        font-size: var(--font-size-small);
+        display: block;
+    }
+    
+    .post-meta-list [class^="post-meta-"] {
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 0.2rem solid(--color-light-grey)
+
+    }
+
+    .post-meta-list [class^="post-meta-"]:last-child {
+      border: none;
+      margin-bottom: 3rem;
+    }
+
+    /* Tag list
+    ============================= */
+
+    .tag-list {
+      padding: 0;
+      list-style: none;
+    }
+
+    .taglist li {
+      display: inline;
+    }
+
+    .taglist li::after {
+      content: ", "
+    }
+
+    .taglist li::after:last-child {
+      content: "";
+    }
