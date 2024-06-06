@@ -548,6 +548,10 @@
       min-width: 20%;
     }
 
+
+    /* Post Meta
+    ============================= */
+    
     .post-meta-list {
       flex-direction: column;
     }
@@ -588,5 +592,5 @@
     }
 
     .tag-list li::after:last-child {
-      content: none;
+      content: "";
     }
