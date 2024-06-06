@@ -313,7 +313,7 @@
 
     /* Section ABOUT US ============================= */
 
-    .section-about-us [lass^="col-"] {
+    .section-about-us [class^="col-"] {
         align-self: center;
     }
     
