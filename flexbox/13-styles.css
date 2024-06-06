@@ -556,20 +556,21 @@
         color: var(--color-primary);
         font-size: var(--font-size-small);
         display: block;
+        text-transform: uppercase;
     }
     
     .post-meta-list [class^="post-meta-"] {
       margin-bottom: 1rem;
       padding-bottom: 1rem;
-      border-bottom: 0.2rem solid(--color-light-grey)
-
+      border-bottom: 0.2rem solid var(--color-light-grey);
     }
 
     .post-meta-list [class^="post-meta-"]:last-child {
       border: none;
       margin-bottom: 3rem;
     }
-
+    
+    /* Separator comment */
     /* Tag list
     ============================= */
 
@@ -587,5 +588,5 @@
     }
 
     .taglist li::after:last-child {
-      content: "";
+      content: none;
     }
