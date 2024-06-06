@@ -307,7 +307,7 @@
       min-height: 50vh;
     }
 
-    .section-category {
+    .section-hero .section-category {
       color: var(--color-white);
       text-transform: var(--section-category-uppercase);
     }
