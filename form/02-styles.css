@@ -674,4 +674,5 @@
         flex-direction: column;
         border: none;
         padding: 0 0 2rem;
+        justify-content: flex-start;
     }
