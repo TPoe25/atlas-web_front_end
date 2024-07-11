@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    
+    <head>
+        
+        <meta charset="UTF-8" />
+        <title>Task 8</title>
+        <script src = "https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="application/javascript">
+            $(document).ready(function() {
+                function createSearchForm() {
+                    var $form = $('<form>').append(
+                        $('<input>').attr('type', 'text').attr('placeholder', 'Search Wikipedia'),
+                        $('<input>').attr('type', 'submit').val('Search')
+                    );
+
+                    var $ul = $('<ul>');
+
+                    $form.on('submit', function(event) {
+                        event.preventDefault();
+                        var search = $(this).find('input[type="text"]').val();
+                        queryWikipedia(search);
+                    });
+
+                    $('body').appendTo.pagination($form, $ul);
+                }
+
+                function addNewArticle(id, title, snippet) {
+                    var $li = $('<li>').append(
+                        $('<p>').append(
+                            $('<span>').text(id + ' - '),
+                            $('<b>').text(title)
+                        ),
+                        $('<p>').html(snippet)
+                    );
+                    $('ul').append($li);
+                }
+
+                function queryWikipedia(search) {
+                    var data = {
+                        action: 'query',
+                        list:'search',
+                        srsearch: search,
+                        format: 'json',
+                        origin: '*',
+                        offset: '0'
+                    };
+
+                function buildPagination(numberOfItems, itemsPerPage, currentOffset) {
+                    var $pagination = $('<ul>');
+                    var numberOfPages = Math.ceil(numberOfItems / itemsPerPage);
+                    var currentPage = Math.ceil(currentOffset / itemsPerPage);
+                    var previousPage = currentPage - 1;
+                    var nextPage = currentPage + 1;
+                    var firstPage = 1;
+                    var lastPage = numberOfPages;
+
+                    if (previousPage > 0) {
+                        $pagination.append(
+                            $('<li>').append(
+                                $('<a>').attr('href', '#').text('Previous').on('click', function() {
+                                    queryWikipedia(search, previousPage * itemsPerPage);
+                                })
+                            )
+                        );
+                    }
+
+                    for (var i = firstPage; i <= lastPage; i++) {
+                        $pagination.append(
+                            $('<li>').append(
+                                $('<a>').attr('href', '#').text(i).on('click', function() {
+                                    queryWikipedia(search, (i - 1) * itemsPerPage);
+                                })
+                            )
+                        );
+                    }
+
+                    if (nextPage <= numberOfPages) {
+                        $pagination.append(
+                            $('<li>').append(
+                                $('<a>').attr('href', '#').text('Next').on('click', function() {
+                                    queryWikipedia(search, nextPage * itemsPerPage);
+                                })
+                            )
+                        );
+                    }
+
+                    $('ul').append($pagination);
+                }
+
+                    $.ajax({
+                        url: 'https://en.wikipedia.org/w/api.php',
+                        data: data, offset,
+                        dataType: 'json',
+                        success: function(response) {
+                            var results = response.query.search;
+                            $('ul').empty();
+                            results.forEach(function(result) {
+                                buildPagination(result.pageid, result.title, result.snippet);
+                            });
+                        },
+                        error: function() {
+                            console.error('Error')
+                        }
+                    });
+                }
+                
+                createSearchForm();
+
+            });
+                
+
+        </script>
+    
+    </head>
+    
+    <body>
+
+    </body>
+
+</html>
