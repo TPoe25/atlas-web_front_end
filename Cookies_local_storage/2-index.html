@@ -12,13 +12,18 @@
                 margin: 50px;
                 align-items: relative;
             }
-            h1, h2 {
+            h1 {
                 margin-bottom: 20px;
             }
             .forms-container {
                 display: flex;
                 align-items: center;
                 gap: 10px;
+            }
+            input, button {
+                margin: 10px;
+                font-size: 16px;
+                padding: 10px;
             }
             #cookiesDisplay{
                 margin-top: 20px;
@@ -32,7 +37,7 @@
             <input type="email" id="email" placeholder="Email">
             <button onclick="setCookies()">Log me in</button>
         </div>
-        <h1>Cookies</h1>
+        <h2>Welcome "{$firstname}"</h2>
         <div id="cookiesDisplay">
             <button onclick="showCookies()">Show the Cookies</button>
         </div>
