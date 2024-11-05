@@ -1,0 +1,20 @@
+{
+  "devDependencies": {
+    "webpack": "^5.93.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  },
+  "dependencies": {
+    "npm": "^10.8.2"
+  },
+  "name": "cookies_local_storage",
+  "description": "This project shows how to create, read, and delete cookies using JavaScript & js-cookie library. It also shows how to use local storage and session storage in the browser.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

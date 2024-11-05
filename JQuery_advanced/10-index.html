@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="UTF-8" />
-        <title>Task 8</title>
+        <title>Task 9</title>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script type="application/javascript">
             $(document).ready(function() {
@@ -32,10 +32,21 @@
                         ),
                         $('<p>').html(snippet)
                     );
-                    $('ul:first').append($li); // append to the first ul in the body
+                    $('ul:first').append($li);
                 }
 
+                function displayLoading(loading) {
+                    var $ul = $('ul:first');
+                    if (loading) {
+                        $ul.wrap('<div class="loading"></div>');
+                    } else {
+                        $ul.unwrap();
+                    }
+                }
+                
+
                 function queryWikipedia(search, offset = 0) {
+                    displayLoading(true);
                     var data = {
                         action: 'query',
                         list: 'search',
@@ -52,7 +63,7 @@
                         success: function(response) {
                             var results = response.query.search;
                             var totalResults = response.query.searchinfo.totalhits;
-                            var itemsPerPage = 10;  // Wikipedia API default
+                            var itemsPerPage = 10;  // API default
 
                             $('ul:first').empty(); // empty the first ul
                             results.forEach(function(result) {
@@ -60,16 +71,18 @@
                             });
 
                             buildPagination(totalResults, itemsPerPage, offset, search);
+                            displayLoading(false);
                         },
                         error: function() {
                             console.error('Error');
+                            displayLoading(false);
                         }
                     });
                 }
 
                 function buildPagination(numberOfItems, itemsPerPage, currentOffset, search) {
                     var $pagination = $('#pagination');
-                    $pagination.empty(); // reset the pagination list to an empty tag
+                    $pagination.empty(); // resetting pagination list empty
 
                     var numberOfPages = Math.ceil(numberOfItems / itemsPerPage);
                     var currentPage = Math.ceil(currentOffset / itemsPerPage) + 1;
@@ -97,6 +110,10 @@
             });
         </script>
         <style>
+            .loading {
+                opacity: 0.2;
+            }
+
             #pagination {
                 display: flex;
                 list-style-type: none;

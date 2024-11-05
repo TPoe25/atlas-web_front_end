@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cookies Local Storage</title>
+        <style>
+            body {
+                font-family: 'Times New Roman', Arial, sans-serif, serif sans-serif;
+                display: flex;
+                flex-direction: column;
+                margin: 50px;
+                align-items: relative;
+            }
+            h1 {
+                margin-bottom: 20px;
+            }
+            .forms-container {
+                display: flex;
+                flex-direction: center;
+                gap: 10px;
+            }
+            input, button {
+                margin: 10px;
+                font-size: 16px;
+                padding: 10px;
+            }
+            #cookiesDisplay{
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Login to the website</h1>
+        <div class= "forms-container">
+            <input type="text" id="firstname" placeholder="First Name">
+            <input type="email" id="email" placeholder="Email">
+            <button onclick="setCookies()">Log me in</button>
+        </div>
+        <h1>Cookies</h1>
+        <div id="cookiesDisplay">
+            <button onclick="showCookies()">Show the Cookies</button>
+        </div>
+
+        <script>
+            function setCookies() {
+                var firstname = document.getElementById("firstname").value;
+                var email = document.getElementById("email").value;
+                var date = new Date();
+                date.setTime(date.getTime() + (10 * 24 * 60 * 60 * 1000));  //setting experation for 10 days
+                var expires = "expires=" + date.toUTCString();//returns date converted to UTC format from string
+                document.cookie = "firstname=" + encodeURIComponent(firstname) + "; path=/ " + expires;
+                document.cookie = "email=" + encodeURIComponent(email) + "; path=/ " + expires;
+                alert("Cookies Set!");
+            }
+
+            function showCookies() {
+                var cookies = document.cookie.split(';');
+                var display = document.getElementById('cookiesDisplay');
+                display.innerHTML = "";
+                cookies.forEach(function(cookie) {
+                    var p = document.createElement('p');
+                    p.textContent = cookie.trim();
+                    display.appendChild(p);
+                });
+            }
+        </script>
+    </body>
+</html>
