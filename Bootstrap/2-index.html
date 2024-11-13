@@ -5,41 +5,53 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
         <title>Holberton - Web Stack - Bootstrap</title>
         <meta name="description" content="Bootstrap is a free and open-source CSS framework">
-
+        
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
     <body>
-        <header>
-            <ul>
-                <li>
+        <!-- Header section -->
+        <header class="border-bottom bg-light py-2 mb-4">
+            
+            <ul class="list-unstyled d-flex justify-content-between align-items-center mb-0">
+                
+                <li class="mr-auto">
                     <a href="/">
-                        <img src="https://via.placeholder.com/150x50" />
+                        <img src="https://via.placeholder.com/150x50" class="rounded border" />
                     </a>
                 </li>
+
+                <!-- Nav link Chemical elements -->
                 <li>
-                    <a href="#">Chemical elements</a>
+                    <a href="#" class="btn btn-secondary active">Chemical elements</a>
                 </li>
+
+                <!-- 2nd nav link Profile -->
                 <li>
-                    <a href="#">Profile</a>
+                    <a href="#" class="btn btn-secondary">Profile</a>
                 </li>
             </ul>
         </header>
 
-        <main>
+        <!-- Main content area with full width (container-fluid) -->
+        <main class="container-fluid">
+            
+            <!-- First section -->
             <section>
-                <div role="alert">
-                    <h4>List of chemical elements</h4>
+                <div role="alert" class="alert alert-info">
+                    <!-- Alert heading style for title -->
+                    <h4 class="alert-heading">List of chemical elements</h4>
                     <p>This is a list of the 5 first chemical elements which have been identified as of 2019.</p>
                     <hr>
-                    <p>A popular visualization of all 118 elements is <a href="https://en.wikipedia.org/wiki/Periodic_table">the periodic table of the elements</a>.</p>
+                    <p class="mb-0">A popular visualization of all 118 elements is <a href="https://en.wikipedia.org/wiki/Periodic_table">the periodic table of the elements</a>.</p>
                 </div>
             </section>
 
+            <!-- Second section w/ table of elements -->
             <section>
-                <h1>Chemical elements <span>only 5</span></h1>
+                <h1 class="mt-5 mb-4">Chemical elements <span class="badge badge-info">only 5</span></h1>
 
-                <div>
-                    <table>
+                <div class="table-responsive-lg">
+                    <table class="table table-dark table-hover">
                         <thead>
                             <tr>
                                 <th scope="col">Atomic number</th>
@@ -58,6 +70,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <!-- Each row shows an element -->
                             <tr>
                                 <td>1</td>
                                 <td>H</td>
@@ -127,7 +140,7 @@
                                 <td>2</td>
                                 <td>10.81</td>
                                 <td>2.34</td>
-                                <td>2349</span></td>
+                                <td>2349</td>
                                 <td>4200</td>
                                 <td>1.026</td>
                                 <td>2.04</td>
