@@ -6,108 +6,18 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script type="application/javascript">
             $(document).ready(function() {
-                function createSearchForm() {
-                    var $form = $('<form>').append(
-                        $('<input>').attr('type', 'text').attr('placeholder', 'Search Wikipedia'),
-                        $('<input>').attr('type', 'submit').val('Search')
+                function addPostRow(data) {
+                    var $p = $('<p>').append(
+                        $('<span>').text('Post created with id ' + data.id + ', title: ' + data.title + ', author: ' + data.author)
                     );
-
-                    var $ul = $('<ul>');
-                    var $pagination = $('<ul>').attr('id', 'pagination');
-
-                    $form.on('submit', function(event) {
-                        event.preventDefault();
-                        var search = $(this).find('input[type="text"]').val();
-                        queryWikipedia(search, 0);
-                    });
-
-                    $('body').append($form, $ul, $pagination);
+                    $('body').append($p);
                 }
 
-                function addNewArticle(id, title, snippet) {
-                    var $li = $('<li>').append(
-                        $('<p>').append(
-                            $('<span>').text(id + ' - '),
-                            $('<b>').text(title)
-                        ),
-                        $('<p>').html(snippet)
-                    );
-                    $('ul:first').append($li);
-                }
-
-                function displayLoading(loading) {
-                    var $ul = $('ul:first');
-                    if (loading) {
-                        $ul.wrap('<div class="loading"></div>');
-                    } else {
-                        $ul.unwrap();
-                    }
-                }
-                
-
-                function queryWikipedia(search, offset = 0) {
-                    displayLoading(true);
-                    var data = {
-                        action: 'query',
-                        list: 'search',
-                        srsearch: search,
-                        format: 'json',
-                        origin: '*',
-                        sroffset: offset
-                    };
-
+                function listPosts() {
                     $.ajax({
-                        url: 'https://en.wikipedia.org/w/api.php',
-                        data: data,
-                        dataType: 'json',
-                        success: function(response) {
-                            var results = response.query.search;
-                            var totalResults = response.query.searchinfo.totalhits;
-                            var itemsPerPage = 10;  // API default
-
-                            $('ul:first').empty(); // empty the first ul
-                            results.forEach(function(result) {
-                                addNewArticle(result.pageid, result.title, result.snippet);
-                            });
-
-                            buildPagination(totalResults, itemsPerPage, offset, search);
-                            displayLoading(false);
-                        },
-                        error: function() {
-                            console.error('Error');
-                            displayLoading(false);
-                        }
-                    });
+                        url: 
                 }
-
-                function buildPagination(numberOfItems, itemsPerPage, currentOffset, search) {
-                    var $pagination = $('#pagination');
-                    $pagination.empty(); // resetting pagination list empty
-
-                    var numberOfPages = Math.ceil(numberOfItems / itemsPerPage);
-                    var currentPage = Math.ceil(currentOffset / itemsPerPage) + 1;
-
-                    for (var i = 1; i <= numberOfPages; i++) {
-                        var $li = $('<li>').text(i).css({
-                            cursor: 'pointer',
-                            marginLeft: '10px',
-                            fontWeight: i === currentPage ? 'bold' : 'normal'
-                        });
-
-                        if (i !== currentPage) {
-                            $li.on('click', (function(page) {
-                                return function() {
-                                    queryWikipedia(search, (page - 1) * itemsPerPage);
-                                }
-                            })(i));
-                        }
-
-                        $pagination.append($li);
-                    }
-                }
-
-                createSearchForm();
-            });
+            
         </script>
         <style>
             .loading {
